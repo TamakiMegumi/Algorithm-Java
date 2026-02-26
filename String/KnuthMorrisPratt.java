@@ -95,7 +95,6 @@ public class KnuthMorrisPratt {
             } else {
                 j = next[j];
             }
-            // 匹配成功，记录位置并继续搜索
             if (j == pattern.length()) {
                 result.add(i - pattern.length());
                 j = next[j];
