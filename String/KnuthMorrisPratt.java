@@ -11,6 +11,9 @@ import java.util.List;
  */
 public class KnuthMorrisPratt {
 
+    private KnuthMorrisPratt() {
+    }
+
     /**
      * Searches for the first occurrence of the pattern in the text using KMP algorithm.
      * Returns the starting index of the first match, or -1 if no match is found.
