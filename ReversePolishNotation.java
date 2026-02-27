@@ -9,7 +9,7 @@ import java.util.Map;
  * 逆波兰表达式
  */
 public class ReversePolishNotation {
-    private Map<Character, Integer> map = new HashMap<>() {
+    private final Map<Character, Integer> map = new HashMap<>() {
         {
             put('+', 1);
             put('-', 1);
@@ -47,7 +47,7 @@ public class ReversePolishNotation {
                     int u = 0;
                     int j = i;
                     while (j < n && isNum(cs[j])) {
-                        u = u * 10 + (int) (cs[j] - '0');
+                        u = u * 10 + (cs[j] - '0');
                         j++;
                     }
                     nums.addLast(u);
@@ -97,7 +97,7 @@ public class ReversePolishNotation {
         nums.addLast(ans);
     }
 
-    boolean isNum(char c) {
+    private boolean isNum(char c) {
         return Character.isDigit(c);
     }
 }
