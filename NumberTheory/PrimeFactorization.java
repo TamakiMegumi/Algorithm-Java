@@ -22,11 +22,10 @@ public class PrimeFactorization {
     }
 
     public List<Integer> getPrimeFactors(int x) {
-        if (x < 0 || x > maxNum) {
-            throw new ArrayIndexOutOfBoundsException(
-                    "ERROR:index out of bound,index=" + maxNum +
-                            ",max length=" + maxNum);
-        }
         return primeFactors[x];
+    }
+
+    public boolean isPrime(int x) {
+        return x >= 2 && primeFactors[x].isEmpty();
     }
 }
