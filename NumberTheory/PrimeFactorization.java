@@ -26,6 +26,6 @@ public class PrimeFactorization {
     }
 
     public boolean isPrime(int x) {
-        return x >= 2 && primeFactors[x].isEmpty();
+        return x >= 2 && primeFactors[x].size() == 1;
     }
 }

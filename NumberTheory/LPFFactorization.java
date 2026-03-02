@@ -39,6 +39,6 @@ public class LPFFactorization {
     }
 
     public boolean isPrime(int x) {
-        return x >= 2 && lpf[x] == 0;
+        return x >= 2 && lpf[x] == x;
     }
 }
