@@ -8,24 +8,20 @@ import java.util.List;
  */
 public class Eratosthenes {
     private boolean[] notPrime;
-
-    public Eratosthenes(int N) {
-        notPrime = new boolean[N + 1];
-        prime = new ArrayList<>();
-        calculate(N);
-    }
-
     private List<Integer> prime;
 
-    private void calculate(int n) {
+    public Eratosthenes(int maxnum) {
+        notPrime = new boolean[maxnum + 1];
+        prime = new ArrayList<>();
+
         notPrime[0] = notPrime[1] = true;
-        for (int i = 2; i <= n; i++) {
+        for (int i = 2; i <= maxnum; i++) {
             if (!notPrime[i]) {
                 prime.addLast(i);
-                if ((long) i * i > n) {
+                if ((long) i * i > maxnum) {
                     continue;
                 }
-                for (int j = i * i; j <= n; j += i) {
+                for (int j = i * i; j <= maxnum; j += i) {
                     notPrime[j] = true;
                 }
             }
@@ -33,11 +29,6 @@ public class Eratosthenes {
     }
 
     public boolean isPrime(int n) {
-        if (n > notPrime.length) {
-            throw new IndexOutOfBoundsException(
-                    "your number is too big!"
-            );
-        }
         return !notPrime[n];
     }
 
