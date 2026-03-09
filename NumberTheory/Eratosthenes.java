@@ -18,9 +18,6 @@ public class Eratosthenes {
         for (int i = 2; i <= maxnum; i++) {
             if (!notPrime[i]) {
                 prime.addLast(i);
-                if ((long) i * i > maxnum) {
-                    continue;
-                }
                 for (int j = i * i; j <= maxnum; j += i) {
                     notPrime[j] = true;
                 }
