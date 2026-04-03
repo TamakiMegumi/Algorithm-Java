@@ -11,15 +11,19 @@ public class Eratosthenes {
     private List<Integer> prime;
 
     public Eratosthenes(int maxnum) {
+        if (maxnum < 0) {
+            throw new IllegalArgumentException("maxnum must be >=0");
+        }
         notPrime = new boolean[maxnum + 1];
-        prime = new ArrayList<>();
+        int capacity = (maxnum < 2 ? 0 : (int) (maxnum / Math.log(maxnum))) + 10;
+        prime = new ArrayList<>(capacity);
 
         notPrime[0] = notPrime[1] = true;
         for (int i = 2; i <= maxnum; i++) {
             if (!notPrime[i]) {
-                prime.addLast(i);
-                for (int j = i * i; j <= maxnum; j += i) {
-                    notPrime[j] = true;
+                prime.add(i);
+                for (long j = 1L * i * i; j <= maxnum; j += i) {
+                    notPrime[(int) j] = true;
                 }
             }
         }
