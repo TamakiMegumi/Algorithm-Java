@@ -11,7 +11,7 @@ public class PrimeFactorization {
     public PrimeFactorization(int maxNum) {
         this.maxNum = maxNum;
         primeFactors = new ArrayList[maxNum + 1];
-        Arrays.setAll(primeFactors, _ -> new ArrayList<>());
+        Arrays.setAll(primeFactors, X -> new ArrayList<>());
         for (int i = 2; i <= maxNum; i++) {
             if (primeFactors[i].isEmpty()) {
                 for (int j = i; j <= maxNum; j += i) {
